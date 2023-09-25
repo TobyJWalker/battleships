@@ -48,3 +48,25 @@ I would like to be able to see my hits and misses so far
 As a player
 So that I can play against a human opponent
 I would like to play a two-player game
+
+>> EXISTING FEATURES
+
+- Can choose different sized ships
+- Assigned varying sized ships (per-determined sizes)
+- One player game
+- Can place one ship on board
+- Can pick vertical or horizontal orientation
+- Basic board of ships is displayed after placing first ship
+
+>> REQUIRED FEATURES
+
+- Place multiple ships
+- 2 player mode
+- Randomly assign enemy ships on 1 player mode
+- More accurate orientation (up, down, left, right) maybe?
+- Make shots at enemy board and sink ships
+- Keep track of hits and misses
+- Calculate winner
+- Display board before first ship placed / Better display of board?
+- Check to make sure ships are not overlapping or off board
+- Sanitise user inputs
