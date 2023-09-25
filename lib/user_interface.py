@@ -45,5 +45,5 @@ class UserInterface:
                     row_cells.append("S")
                 else:
                     row_cells.append(".")
-            rows.append("".join(row_cells))
+            rows.append("  ".join(row_cells))
         return "\n".join(rows)
