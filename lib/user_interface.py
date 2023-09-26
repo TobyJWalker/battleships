@@ -12,6 +12,12 @@ class UserInterface:
         self._show(self._format_board())
         self._prompt_for_ship_placement()
 
+    def ship_overlap(self, row, col):
+        for ship in self.game.ships_placed:
+            if ship.covers(row, col):
+                return True
+        return False
+
     def _show(self, message):
         self.io.write(message + "\n")
 
@@ -29,12 +35,15 @@ class UserInterface:
         ship_row = self._prompt("Which row?")
         ship_col = self._prompt("Which column?")
         self._show("OK.")
-        self.game.place_ship(
-            length=int(ship_length),
-            orientation={"v": "vertical", "h": "horizontal"}[ship_orientation],
-            row=int(ship_row),
-            col=int(ship_col),
-        )
+        if not self.ship_overlap(ship_row, ship_col):
+            self.game.place_ship(
+                length=int(ship_length),
+                orientation={"v": "vertical", "h": "horizontal"}[ship_orientation],
+                row=int(ship_row),
+                col=int(ship_col),
+            )
+        else:
+            print("You already have a ship placed there!")
 
     def _format_board(self):
         rows = []

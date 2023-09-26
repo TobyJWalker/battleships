@@ -94,3 +94,4 @@ def test_out_of_bounds_col_too_long():
         col = 9
     )
     assert ship_placement.valid == False
+
