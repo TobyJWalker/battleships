@@ -2,8 +2,17 @@ class ShipPlacement:
     def __init__(self, length, orientation, row, col):
         self.length = length
         self.orientation = orientation
-        self.row = row
-        self.col = col
+        if col not in range(1,11) or row not in range(1,11):
+            self.valid = False
+        else:
+            if row + length > 10 and orientation == "horizontal":
+                self.valid = False
+            elif col + length > 10 and orientation == "vertical":
+                self.valid = False
+            else:
+                self.row = row
+                self.col = col
+                self.valid = True       
 
     def covers(self, row, col):
         if self.orientation == "vertical":

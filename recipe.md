@@ -60,13 +60,19 @@ I would like to play a two-player game
 
 >> REQUIRED FEATURES
 
+<!-- - Display board before first ship placed / Better display of board? -->
+<!-- - Check to make sure ships are not off board -->
+- Check to make sure ships are not overlapping
 - Place multiple ships
 - 2 player mode
-- Randomly assign enemy ships on 1 player mode
-- More accurate orientation (up, down, left, right) maybe?
 - Make shots at enemy board and sink ships
 - Keep track of hits and misses
 - Calculate winner
-- Display board before first ship placed / Better display of board?
-- Check to make sure ships are not overlapping or off board
+
+>> NICE TO HAVE
 - Sanitise user inputs
+- More accurate orientation (up, down, left, right) maybe?
+
+
+
+

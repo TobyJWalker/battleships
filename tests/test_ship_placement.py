@@ -59,4 +59,38 @@ def test_has_a_friendly_string_representation():
 """
 Cannot be placed outside of the board
 """
+def test_out_of_bounds_cols():
+    ship_placement = ShipPlacement(
+        length = 2,
+        orientation = "horizontal",
+        row = 2, 
+        col = 11
+    )
+    assert ship_placement.valid == False
 
+def test_out_of_bounds_rows():
+    ship_placement = ShipPlacement(
+        length = 2,
+        orientation = "horizontal",
+        row = 11, 
+        col = 2
+    )
+    assert ship_placement.valid == False
+
+def test_out_of_bounds_row_too_long():
+    ship_placement = ShipPlacement(
+        length = 3,
+        orientation = "horizontal",
+        row = 9, 
+        col = 2
+    )
+    assert ship_placement.valid == False
+
+def test_out_of_bounds_col_too_long():
+    ship_placement = ShipPlacement(
+        length = 3,
+        orientation = "vertical",
+        row = 2, 
+        col = 9
+    )
+    assert ship_placement.valid == False
