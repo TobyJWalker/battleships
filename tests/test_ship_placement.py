@@ -54,3 +54,9 @@ def test_has_a_friendly_string_representation():
         length=5, orientation="horizontal", row=3, col=2)
     assert str(
         ship_placement) == "ShipPlacement(length=5, orientation=horizontal, row=3, col=2)"
+    
+
+"""
+Cannot be placed outside of the board
+"""
+
