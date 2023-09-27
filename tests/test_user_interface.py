@@ -31,3 +31,9 @@ def test_ship_removed_from_list():
 def test_ui_name():
     interface = UserInterface(Mock(), Mock(), 'Player 1')
     assert interface.name == 'Player 1'
+
+def test_initial_hit_grid():
+    interface = UserInterface(Mock(), Mock())
+    assert len(interface.hit_grid) == 10
+    assert len(interface.hit_grid[0]) == 10
+    assert interface.hit_grid[0][0] == '.'

@@ -43,3 +43,12 @@ def test_when_we_place_a_ship_then_its_place_on_the_board_is_marked_out():
     assert not game.ship_at(4, 3)
     assert not game.ship_at(3, 1)
     assert not game.ship_at(4, 1)
+
+def test_hit_counter_initial():
+    game = Game()
+    assert game.hit_counter == 0
+
+def test_hit_counter_increment():
+    game = Game()
+    game.hit_counter += 1
+    assert game.hit_counter == 1

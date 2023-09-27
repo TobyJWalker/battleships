@@ -6,6 +6,7 @@ class UserInterface:
         self.game = game
         self.unplaced_ships = self.game.starting_ships()
         self.name = name
+        self.hit_grid = [['.' for i in range(10)] for i in range(10)]
 
     def run(self):
         self._show(f"Welcome to the game, {self.name}!")

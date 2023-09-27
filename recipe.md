@@ -72,7 +72,3 @@ I would like to play a two-player game
 >> NICE TO HAVE
 - Sanitise user inputs
 - More accurate orientation (up, down, left, right) maybe?
-
-
-
-

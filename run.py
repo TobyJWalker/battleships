@@ -21,3 +21,7 @@ ui2 = UserInterface(io, p2, 'Player 2')
 ui1.run()
 clear()
 ui2.run()
+clear()
+
+while p1.hit_counter < 17 and p2.hit_counter < 17:
+    pass
