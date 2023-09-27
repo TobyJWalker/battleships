@@ -13,7 +13,7 @@ Initialises with five ships of length 2, 3, 3, 4, 5
 """
 def test_initialises_with_five_ships_of_right_length():
     game = Game()
-    unplaced_ships = game.unplaced_ships()
+    unplaced_ships = game.starting_ships()
     assert len(unplaced_ships) == 5
     assert unplaced_ships[0].length == 2
     assert unplaced_ships[1].length == 3

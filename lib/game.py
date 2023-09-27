@@ -8,7 +8,7 @@ class Game:
         self.rows = rows
         self.cols = cols
 
-    def unplaced_ships(self):
+    def starting_ships(self):
         return [
             Ship(2),
             Ship(3),
@@ -24,7 +24,11 @@ class Game:
             row=row,
             col=col,
         )
-        self.ships_placed.append(ship_placement)
+        if ship_placement.valid:
+            self.ships_placed.append(ship_placement)
+        else:
+            print('Cannot place ship out of bounds')
+        return ship_placement.valid
 
     def ship_at(self, row, col):
         for ship_placement in self.ships_placed:

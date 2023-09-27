@@ -1,4 +1,4 @@
-import sys
+import sys, os
 from lib.game import Game
 from lib.user_interface import UserInterface
 
@@ -10,8 +10,14 @@ class TerminalIO:
     def write(self, message):
         sys.stdout.write(message)
 
+clear = lambda: os.system('clear')
+
 
 io = TerminalIO()
-game = Game()
-user_interface = UserInterface(io, game)
-user_interface.run()
+p1 = Game()
+p2 = Game()
+ui1 = UserInterface(io, p1, 'Player 1')
+ui2 = UserInterface(io, p2, 'Player 2')
+ui1.run()
+clear()
+ui2.run()

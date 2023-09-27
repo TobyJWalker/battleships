@@ -15,3 +15,19 @@ def test_ship_overlap_end_of_ship():
     game.place_ship(length= 3, orientation="horizontal", row=5, col=4)
     assert interface.ship_overlap(3, 5, 3, 'v') == True
     assert interface.ship_overlap(5, 2, 3, 'h') == True
+
+def test_ship_removed_from_list():
+    game = Game()
+    interface = UserInterface(Mock(), game)
+    game.place_ship(length= 3, orientation="horizontal", row=5, col=4)
+    assert interface.unplaced_ships == [Ship(2), Ship(3), Ship(3), Ship(4), Ship(5)]
+    interface.start_ship_placement(2, 'h', 5, 4)
+    assert interface.unplaced_ships == [Ship(3), Ship(3), Ship(4), Ship(5)]
+    interface.start_ship_placement(3, 'h', 6, 4)
+    assert interface.unplaced_ships == [Ship(3), Ship(4), Ship(5)]
+    interface.start_ship_placement(3, 'h', 7, 4)
+    assert interface.unplaced_ships == [Ship(4), Ship(5)]
+
+def test_ui_name():
+    interface = UserInterface(Mock(), Mock(), 'Player 1')
+    assert interface.name == 'Player 1'
