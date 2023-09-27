@@ -62,7 +62,7 @@ I would like to play a two-player game
 
 <!-- - Display board before first ship placed / Better display of board? -->
 <!-- - Check to make sure ships are not off board -->
-- Check to make sure ships are not overlapping
+<!-- - Check to make sure ships are not overlapping -->
 - Place multiple ships
 - 2 player mode
 - Make shots at enemy board and sink ships
