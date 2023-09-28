@@ -96,3 +96,9 @@ class UserInterface:
                     row_cells.append(".")
             rows.append("  ".join(row_cells))
         return "\n".join(rows)
+
+    def _format_hit_grid(self):
+        '''
+        Display the hit grid in the same format as the board
+        '''
+        pass

@@ -37,3 +37,37 @@ def test_initial_hit_grid():
     assert len(interface.hit_grid) == 10
     assert len(interface.hit_grid[0]) == 10
     assert interface.hit_grid[0][0] == '.'
+
+def test_shot_out_of_bounds():
+    interface = UserInterface(Mock(), Mock())
+    assert interface.check_shot_valid(11, 11, Mock()) == False
+    assert interface.check_shot_valid(-1, -1, Mock()) == False
+
+def test_shot_already_taken():
+    interface = UserInterface(Mock(), Mock())
+    interface.hit_grid[0][0] = 'H'
+    interface.hit_grid[1][1] = 'M'
+    assert interface.check_shot_valid(0, 0, Mock()) == False
+    assert interface.check_shot_valid(1, 1, Mock()) == False
+    assert interface.check_shot_valid(2, 2, Mock()) == True
+
+def test_shot_miss():
+    game = Game()
+    ui = UserInterface(Mock(), game)
+    ui.check_shot(0, 0)
+    assert ui.hit_grid[0][0] == 'M'
+    assert game.lives == 17
+
+def test_shot_hit():
+    game = Game()
+    ui = UserInterface(Mock(), game)
+    game.place_ship(length= 3, orientation="horizontal", row=5, col=4)
+    ui.check_shot(5, 5)
+    assert ui.hit_grid[5][5] == 'H'
+
+def test_shot_hit_decrement_lives():
+    game = Game()
+    ui = UserInterface(Mock(), game)
+    game.place_ship(length= 3, orientation="horizontal", row=5, col=4)
+    ui.check_shot(5, 5)
+    assert game.lives == 16
