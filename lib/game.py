@@ -7,7 +7,7 @@ class Game:
         self.ships_placed = []
         self.rows = rows
         self.cols = cols
-        self.hit_counter = 0
+        self.lives = 17
 
     def starting_ships(self):
         return [

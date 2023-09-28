@@ -46,9 +46,9 @@ def test_when_we_place_a_ship_then_its_place_on_the_board_is_marked_out():
 
 def test_hit_counter_initial():
     game = Game()
-    assert game.hit_counter == 0
+    assert game.lives == 17
 
-def test_hit_counter_increment():
+def test_hit_counter_decrement():
     game = Game()
-    game.hit_counter += 1
-    assert game.hit_counter == 1
+    game.lives -= 1
+    assert game.lives == 16

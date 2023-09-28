@@ -23,5 +23,15 @@ clear()
 ui2.run()
 clear()
 
-while p1.hit_counter < 17 and p2.hit_counter < 17:
-    pass
+while p1.lives > 0 and p2.lives > 0:
+    '''
+    create a function in ui to prompt for a shot
+    create a function to check if that coordinate has been shot at before and not out of bounds
+    create a separate functions in ui to handle the shot (such as check for hit miss, update hit grid, increment hit counter)
+    create a function in ui to display the hit grid
+    clear the screen between moves
+    '''
+
+'''
+Check who still has lives and declare them the winner
+'''

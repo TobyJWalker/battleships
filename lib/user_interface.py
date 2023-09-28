@@ -40,6 +40,14 @@ class UserInterface:
         )
         if success:
             self.unplaced_ships.remove(Ship(length))
+        
+    def take_shot(self, row, col):
+        '''
+        check if a ship covers the coordinate
+        update hit_grid with hit or miss
+        decrement lives counter
+        '''
+        pass
 
     def _show(self, message):
         self.io.write(message + "\n")
@@ -61,6 +69,14 @@ class UserInterface:
             self.start_ship_placement(ship_length, ship_orientation, ship_row, ship_col)
         else:
             print("You already have a ship placed there!")
+    
+    def _prompt_for_shot(self, opp_ui):
+        shot_row = int(self._prompt("Which row?"))
+        shot_col = int(self._prompt("Which column?"))
+
+        # perform checks for shot validity
+
+        opp_ui.take_shot(shot_row, shot_col)
 
     def _format_board(self):
         rows = []
