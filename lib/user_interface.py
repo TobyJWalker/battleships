@@ -41,11 +41,18 @@ class UserInterface:
         if success:
             self.unplaced_ships.remove(Ship(length))
         
-    def take_shot(self, row, col):
+    def check_shot(self, row, col):
         '''
         check if a ship covers the coordinate
         update hit_grid with hit or miss
-        decrement lives counter
+        decrement lives counter if hit
+        '''
+        pass
+
+    def check_shot_valid(self, row, col, opp_ui):
+        '''
+        check shot out of bounds
+        check shot already taken (if opp_ui.hit_grid = 'H' or 'M')
         '''
         pass
 
@@ -74,9 +81,9 @@ class UserInterface:
         shot_row = int(self._prompt("Which row?"))
         shot_col = int(self._prompt("Which column?"))
 
-        # perform checks for shot validity
+        # perform checks for shot validity (out of bounds, already shot at)
 
-        opp_ui.take_shot(shot_row, shot_col)
+        opp_ui.check_shot(shot_row, shot_col)
 
     def _format_board(self):
         rows = []
