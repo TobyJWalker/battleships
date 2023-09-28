@@ -40,16 +40,16 @@ def test_initial_hit_grid():
 
 def test_shot_out_of_bounds():
     interface = UserInterface(Mock(), Mock())
-    assert interface.check_shot_valid(11, 11, Mock()) == False
-    assert interface.check_shot_valid(-1, -1, Mock()) == False
+    assert interface.check_shot_valid(11, 11) == False
+    assert interface.check_shot_valid(-1, -1) == False
 
 def test_shot_already_taken():
     interface = UserInterface(Mock(), Mock())
     interface.hit_grid[0][0] = 'H'
     interface.hit_grid[1][1] = 'M'
-    assert interface.check_shot_valid(0, 0, Mock()) == False
-    assert interface.check_shot_valid(1, 1, Mock()) == False
-    assert interface.check_shot_valid(2, 2, Mock()) == True
+    assert interface.check_shot_valid(0, 0) == False
+    assert interface.check_shot_valid(1, 1) == False
+    assert interface.check_shot_valid(2, 2) == True
 
 def test_shot_miss():
     game = Game()

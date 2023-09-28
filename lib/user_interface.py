@@ -47,15 +47,15 @@ class UserInterface:
         update hit_grid with hit or miss
         decrement lives counter if hit
         '''
-        if self.ship_overlap(row, col):
+        if self.ship_overlap(row+1, col+1):
             self.hit_grid[row][col] = "H"
             self.game.lives -= 1
         else:
             self.hit_grid[row][col] = "M"
 
     def check_shot_valid(self, row, col):
-        if col not in range(1,11) or row not in range(1,11):
-            if row == -2 and col == -2:
+        if col not in range(0,10) or row not in range(0,10):
+            if row != -11 and col != -11:
                 print("That shot is out of bounds. Please try again.")
             return False
         elif self.hit_grid[row][col] != ".":
@@ -88,14 +88,13 @@ class UserInterface:
     def _prompt_for_shot(self, opp_ui):
         self._show(f"It's {self.name}'s turn to shoot!")
         self._show(opp_ui._format_hit_grid())
-        shot_row = -1
-        shot_col = -1
-        while not self.check_shot_valid(shot_row - 1, shot_col -1):
+        shot_row = -10
+        shot_col = -10
+        while not opp_ui.check_shot_valid(shot_row - 1, shot_col -1):
             shot_row = int(self._prompt("Which row?"))
             shot_col = int(self._prompt("Which column?"))
 
-        if self.check_shot_valid(shot_row - 1, shot_col -1):
-            opp_ui.check_shot_hit(shot_row - 1, shot_col - 1)
+        opp_ui.check_shot_hit(shot_row - 1, shot_col - 1)
 
     def _format_board(self):
         rows = []
