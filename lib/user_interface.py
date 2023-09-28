@@ -78,6 +78,7 @@ class UserInterface:
             print("You already have a ship placed there!")
     
     def _prompt_for_shot(self, opp_ui):
+        self._show("It's {self.name}'s turn to shoot!")
         shot_row = int(self._prompt("Which row?"))
         shot_col = int(self._prompt("Which column?"))
 
