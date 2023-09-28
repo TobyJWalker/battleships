@@ -25,11 +25,11 @@ clear()
 
 while p1.lives > 0 and p2.lives > 0:
     '''
+    create a function in ui to display the hit grid
     create a function in ui to prompt for a shot
     create a function to check if that coordinate has been shot at before and not out of bounds
     create a separate functions in ui to handle the shot (such as check for hit miss, update hit grid, increment hit counter)
-    create a function in ui to display the hit grid
-    clear the screen between moves
+
     '''
     ui1._prompt_for_shot(ui2)
     clear()

@@ -54,7 +54,7 @@ def test_shot_already_taken():
 def test_shot_miss():
     game = Game()
     ui = UserInterface(Mock(), game)
-    ui.check_shot(0, 0)
+    ui.check_shot_hit(0, 0)
     assert ui.hit_grid[0][0] == 'M'
     assert game.lives == 17
 
@@ -62,12 +62,12 @@ def test_shot_hit():
     game = Game()
     ui = UserInterface(Mock(), game)
     game.place_ship(length= 3, orientation="horizontal", row=5, col=4)
-    ui.check_shot(5, 5)
+    ui.check_shot_hit(5, 5)
     assert ui.hit_grid[5][5] == 'H'
 
 def test_shot_hit_decrement_lives():
     game = Game()
     ui = UserInterface(Mock(), game)
     game.place_ship(length= 3, orientation="horizontal", row=5, col=4)
-    ui.check_shot(5, 5)
+    ui.check_shot_hit(5, 5)
     assert game.lives == 16

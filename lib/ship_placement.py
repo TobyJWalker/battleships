@@ -5,9 +5,9 @@ class ShipPlacement:
         if col not in range(1,11) or row not in range(1,11):
             self.valid = False
         else:
-            if row + length > 10 and orientation == "horizontal":
+            if row + length > 10 and orientation == "vertical":
                 self.valid = False
-            elif col + length > 10 and orientation == "vertical":
+            elif col + length > 10 and orientation == "horizontal":
                 self.valid = False
             else:
                 self.row = row

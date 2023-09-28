@@ -80,7 +80,7 @@ def test_out_of_bounds_rows():
 def test_out_of_bounds_row_too_long():
     ship_placement = ShipPlacement(
         length = 3,
-        orientation = "horizontal",
+        orientation = "vertical",
         row = 9, 
         col = 2
     )
@@ -89,7 +89,7 @@ def test_out_of_bounds_row_too_long():
 def test_out_of_bounds_col_too_long():
     ship_placement = ShipPlacement(
         length = 3,
-        orientation = "vertical",
+        orientation = "horizontal",
         row = 2, 
         col = 9
     )
