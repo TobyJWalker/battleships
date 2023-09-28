@@ -31,6 +31,10 @@ while p1.lives > 0 and p2.lives > 0:
     create a function in ui to display the hit grid
     clear the screen between moves
     '''
+    ui1._prompt_for_shot(ui2)
+    clear()
+    ui2._prompt_for_shot(ui1)
+    clear()
 
 '''
 Check who still has lives and declare them the winner
