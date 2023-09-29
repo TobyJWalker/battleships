@@ -7,15 +7,15 @@ class Game:
         self.ships_placed = []
         self.rows = rows
         self.cols = cols
-        self.lives = 2
+        self.lives = 17
 
     def starting_ships(self):
         return [
             Ship(2),
-            # Ship(3),
-            # Ship(3),
-            # Ship(4),
-            # Ship(5),
+            Ship(3),
+            Ship(3),
+            Ship(4),
+            Ship(5),
         ]
 
     def place_ship(self, length, orientation, row, col):

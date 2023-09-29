@@ -65,10 +65,9 @@ I would like to play a two-player game
 <!-- - Check to make sure ships are not overlapping -->
 <!-- - Place multiple ships -->
 <!-- - Both players place ships -->
-- Make shots at enemy board and sink ships
-- Keep track of hits and misses
-- Calculate winner
+<!-- - Make shots at enemy board and sink ships -->
+<!-- - Keep track of hits and misses -->
+<!-- - Calculate winner -->
 
 >> NICE TO HAVE
-- Sanitise user inputs
-- More accurate orientation (up, down, left, right) maybe?
+<!-- - Sanitise user inputs -->

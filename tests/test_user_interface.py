@@ -62,12 +62,12 @@ def test_shot_hit():
     game = Game()
     ui = UserInterface(Mock(), game)
     game.place_ship(length= 3, orientation="horizontal", row=5, col=4)
-    ui.check_shot_hit(5, 5)
-    assert ui.hit_grid[5][5] == 'H'
+    ui.check_shot_hit(4, 4)
+    assert ui.hit_grid[4][4] == 'H'
 
 def test_shot_hit_decrement_lives():
     game = Game()
     ui = UserInterface(Mock(), game)
     game.place_ship(length= 3, orientation="horizontal", row=5, col=4)
-    ui.check_shot_hit(5, 5)
+    ui.check_shot_hit(4, 4)
     assert game.lives == 16

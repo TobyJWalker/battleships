@@ -1,4 +1,8 @@
 from lib.ship import Ship
+from time import sleep
+import os
+
+clear = lambda: os.system('clear')
 
 class UserInterface:
     def __init__(self, io, game, name=''):
@@ -50,8 +54,12 @@ class UserInterface:
         if self.ship_overlap(row+1, col+1):
             self.hit_grid[row][col] = "H"
             self.game.lives -= 1
+            self._show("You hit a ship!")
+            sleep(1)
         else:
             self.hit_grid[row][col] = "M"
+            self._show("You missed!")
+            sleep(1)
 
     def check_shot_valid(self, row, col):
         if col not in range(0,10) or row not in range(0,10):
@@ -76,14 +84,21 @@ class UserInterface:
         return ", ".join(ship_lengths)
 
     def _prompt_for_ship_placement(self):
-        ship_length = int(self._prompt("Which do you wish to place?"))
-        ship_orientation = self._prompt("Vertical or horizontal? [vh]")
-        ship_row = int(self._prompt("Which row?"))
-        ship_col = int(self._prompt("Which column?"))
-        if not self.ship_overlap(ship_row, ship_col, ship_length, ship_orientation):
-            self.start_ship_placement(ship_length, ship_orientation, ship_row, ship_col)
-        else:
-            print("You already have a ship placed there!")
+        try:
+            ship_length = int(self._prompt("\nWhich do you wish to place?"))
+            ship_orientation = self._prompt("Vertical or horizontal? [vh]").lower()
+            ship_row = int(self._prompt("Which row?"))
+            ship_col = int(self._prompt("Which column?"))
+        
+            if not self.ship_overlap(ship_row, ship_col, ship_length, ship_orientation) and ship_orientation in 'vh':
+                self.start_ship_placement(ship_length, ship_orientation, ship_row, ship_col)
+            elif ship_orientation not in 'vh':
+                print("Please enter 'v' or 'h' for orientation.")
+            else:
+                print("You already have a ship placed there!")
+        except:
+            self._show("A number must be entered for ship length, row and column.")
+        clear()
     
     def _prompt_for_shot(self, opp_ui):
         self._show(f"It's {self.name}'s turn to shoot!")
@@ -91,8 +106,13 @@ class UserInterface:
         shot_row = -10
         shot_col = -10
         while not opp_ui.check_shot_valid(shot_row - 1, shot_col -1):
-            shot_row = int(self._prompt("Which row?"))
-            shot_col = int(self._prompt("Which column?"))
+            try:
+                shot_row = int(self._prompt("Which row?"))
+                shot_col = int(self._prompt("Which column?"))
+            except:
+                self._show("A number must be entered for row and column.")
+                shot_row = -10
+                shot_col = -10
 
         opp_ui.check_shot_hit(shot_row - 1, shot_col - 1)
 
@@ -106,10 +126,10 @@ class UserInterface:
                 else:
                     row_cells.append(".")
             rows.append("  ".join(row_cells))
-        return "\n".join(rows)
+        return "\n" + "\n".join(rows)
 
     def _format_hit_grid(self):
-        hit_grid_string = ""
+        hit_grid_string = "\n"
         for row in self.hit_grid:
             hit_grid_string += "  ".join(row) + "\n"
         return hit_grid_string
